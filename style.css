@@ -1,0 +1,321 @@
+/* Encabezado de la página */
+header {
+  display: flex;
+  /* Activar el diseño flexible */
+  align-items: center;
+  /* Alinear elementos verticalmente */
+  justify-content: space-between;
+  /* Distribuir elementos horizontalmente */
+  padding: 20px;
+  /* Agregar espacio alrededor del contenido */
+}
+
+/* Imagen */
+header img {
+  max-width: 150px;
+  /* Ajustar el ancho máximo de la imagen */
+  margin-right: 20px;
+  /* Agregar espacio a la derecha de la imagen */
+}
+
+/* Título */
+header h1 {
+  font-size: 2.5em;
+  /* Ajustar el tamaño de la fuente del título */
+  margin: 0;
+  /* Eliminar el margen predeterminado */
+}
+
+/* Cuerpo */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  /* Color de fondo claro */
+  background-image: url("images/fondo.jpg");
+  background-repeat: no-repeat;
+  /* Evitar que la imagen se repita */
+  background-size: cover;
+  /* Ajustar la imagen al tamaño del contenedor */
+}
+
+/* Encabezado */
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #fff;
+  /* Color de texto más oscuro */
+}
+
+h3 {
+  color: #fff;
+  font-size: 2.5em;
+}
+
+p {
+  color: #fff;
+}
+
+
+/* Contenedor de la lista de productos */
+#listaProductos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Elementos de la lista de productos */
+#listaProductos li {
+  width: 33.33%; /* 3 columnas por fila */
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  #listaProductos li {
+    width: 50%; /* 2 columnas por fila */
+  }
+}
+
+/* Media query para pantallas aún más pequeñas */
+@media (max-width: 480px) {
+  #listaProductos li {
+    width: 100%; /* 1 columna por fila */
+  }
+}
+
+
+/* Listas de productos y carrito */
+#listaProductos,
+#listaCarrito {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Elementos de las listas */
+#listaProductos li,
+#listaCarrito li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  /* Fondo blanco para los elementos */
+}
+
+/* Títulos de los elementos */
+#listaProductos li h3,
+#listaCarrito li h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+/* Descripción de los elementos */
+#listaProductos li p,
+#listaCarrito li p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #666;
+  /* Color de texto más claro para los precios */
+}
+
+/* Botón  "Agregar al carrito" */
+#listaProductos li button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+/* "Eliminar del carrito" */
+#listaCarrito li button {
+  margin-left: 10px;
+  padding: 8px 15px;
+  background-color: #f00;
+  /* Color rojo para el botón de eliminar */
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Total del carrito */
+#totalCarrito {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 20px;
+}
+
+/* Botones vaciar, comprar continuar y cancelar compra*/
+#btnVaciarCarrito,
+#btnComprar,
+#btnContinuarCompra,
+#btnCancelarCompra {
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Estilos para el formulario de compra */
+#modalCompra,
+#modalTotal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 30px;
+  border: 1px solid #ccc;
+  z-index: 100;
+  display: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  /* Sombra sutil */
+}
+
+/* Títulos de las modales */
+#modalCompra h2,
+#modalTotal h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+/* Contenedor del formulario */
+#formularioCompra {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Etiquetas del formulario */
+#formularioCompra label {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Campos del formulario */
+#formularioCompra input,
+#formularioCompra textarea {
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+/* Área de texto del formulario */
+#formularioCompra textarea {
+  min-height: 100px;
+}
+
+/* Botón de envío del formulario */
+#formularioCompra button {
+  background-color: #4CAF50;
+  /* Color principal */
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* Efecto hover */
+}
+
+/* Efecto hover del botón */
+#formularioCompra button:hover {
+  background-color: #3e8e41;
+  /* Color principal más oscuro al pasar el mouse */
+}
+
+/* Diseño del formulario */
+#formularioCompra {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Espaciado entre elementos del formulario */
+#formularioCompra label,
+#formularioCompra input,
+#formularioCompra textarea,
+#formularioCompra button {
+  margin-bottom: 15px;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+  #formularioCompra {
+    padding: 10px;
+  }
+
+  #formularioCompra input,
+  #formularioCompra textarea {
+    font-size: 12px;
+  }
+}
+
+/* Modal de agradecimiento */
+#modalGracias {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 30px;
+  border: 1px solid #ccc;
+  z-index: 100;
+  display: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  /* Sombra sutil */
+}
+
+/* Título de la modal de agradecimiento */
+#modalGracias h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+/* Texto de la modal de agradecimiento */
+#modalGracias p {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Botón de la modal de agradecimiento */
+#modalGracias button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  /* Color principal */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* Efecto hover */
+}
+
+/* Efecto hover del botón de la modal de agradecimiento */
+#modalGracias button:hover {
+  background-color: #3e8e41;
+  /* Color principal más oscuro al pasar el mouse */
+}

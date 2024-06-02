@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameHouse</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="images/icon.png">
+</head>
+
+<body>
+  <!-- Encabezado de la página -->
+  <header>
+    <h1>GameHouse</h1>
+    <img src="images/icon2.png" alt="Logotipo de GameHouse">
+  </header>
+  <!-- Contenido principal de la página -->
+  <main>
+    <!-- Sección de productos -->
+    <section id="productos">
+      <h1>Productos</h1>
+      <ul id="listaProductos"></ul>
+    </section>
+    <!-- Sección del carrito de compras -->
+    <section id="carrito">
+      <h3>Carrito</h3>
+      <ul id="listaCarrito"></ul>
+      <button id="btnVaciarCarrito">Vaciar carrito</button>
+      <button id="btnComprar">Comprar</button>
+    </section>
+
+    <!-- Ventana del monto total y continuar o cancelar compra-->
+    <div id="modalTotal" style="display: none;">
+      <h2>Total a pagar: $</h2>
+      <button id="btnContinuarCompra">Continuar compra</button>
+      <button id="btnCancelarCompra">Cancelar</button>
+    </div>
+    <!-- Formulario de Compra-->
+    <div id="modalCompra" style="display: none;">
+      <h2>Completa tus datos para confirmar tu compra</h2>
+      <div id="formularioCompra">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <label for="numeroTarjeta">Número de tarjeta (16 digitos numerales):</label>
+        <input type="text" id="numeroTarjeta" name="numeroTarjeta" required>
+        <label for="dni">DNI(8 digitos numerales):</label>
+        <input type="text" id="dni" name="dni" required>
+        <label for="telefono">Teléfono(10 - 14 digitos numerales):</label>
+        <input type="tel" id="telefono" name="telefono" required>
+        <button type="submit">Confirmar compra</button>
+      </div>
+    </div>
+
+    <div id="modalGracias" style="display: none;">
+      <h2>¡Gracias por tu compra!</h2>
+      <p>Tu pedido se ha procesado correctamente.</p>
+      <button id="btnCerrarGracias">Cerrar</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</main>
+
+<!-- Pie de página -->
+<footer>
+  <p>&copy; 2024 Excofier Santiago - Coder House</p>
+</footer>
+
+</html>
