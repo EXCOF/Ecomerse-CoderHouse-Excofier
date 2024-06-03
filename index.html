@@ -1,69 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GameHouse</title>
+  <!-- Enlace a Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-jrJ/yy5wJHpV9c/SBME/kY2eK8lnK1v6AgUC4RjelCVHzJg9h3wU/0wAGSnOZu8w7WRXuZ1Cn7kxUTyrjAhy5A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="images/icon.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="images/icon.png">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="images/icon.png">
 </head>
-
 <body>
-  <!-- Encabezado de la página -->
   <header>
     <h1>GameHouse</h1>
     <img src="images/icon2.png" alt="Logotipo de GameHouse">
   </header>
-  <!-- Contenido principal de la página -->
   <main>
-    <!-- Sección de productos -->
     <section id="productos">
       <h1>Productos</h1>
       <ul id="listaProductos"></ul>
     </section>
-    <!-- Sección del carrito de compras -->
     <section id="carrito">
       <h3>Carrito</h3>
       <ul id="listaCarrito"></ul>
       <button id="btnVaciarCarrito">Vaciar carrito</button>
       <button id="btnComprar">Comprar</button>
     </section>
-
-    <!-- Ventana del monto total y continuar o cancelar compra-->
     <div id="modalTotal" style="display: none;">
       <h2>Total a pagar: $</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody id="detalleCarrito"></tbody>
+      </table>
       <button id="btnContinuarCompra">Continuar compra</button>
       <button id="btnCancelarCompra">Cancelar</button>
     </div>
-    <!-- Formulario de Compra-->
     <div id="modalCompra" style="display: none;">
       <h2>Completa tus datos para confirmar tu compra</h2>
-      <div id="formularioCompra">
+      <form id="formularioCompra">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
-        <label for="numeroTarjeta">Número de tarjeta (16 digitos numerales):</label>
+        <label for="numeroTarjeta">Número de tarjeta (16 dígitos numerales):</label>
         <input type="text" id="numeroTarjeta" name="numeroTarjeta" required>
-        <label for="dni">DNI(8 digitos numerales):</label>
+        <label for="dni">DNI (8 dígitos numerales):</label>
         <input type="text" id="dni" name="dni" required>
-        <label for="telefono">Teléfono(10 - 14 digitos numerales):</label>
+        <label for="telefono">Teléfono (10 - 14 dígitos numerales):</label>
         <input type="tel" id="telefono" name="telefono" required>
         <button type="submit">Confirmar compra</button>
-      </div>
+      </form>
     </div>
-
-    <div id="modalGracias" style="display: none;">
+    <div id="modalMensaje" style="display: none;">
+      <p></p>
+      <button id="btnCerrarMensaje">Cerrar</button>
+    </div>
+    <div id="modalMensaje" style="display: none;">
       <h2>¡Gracias por tu compra!</h2>
       <p>Tu pedido se ha procesado correctamente.</p>
-      <button id="btnCerrarGracias">Cerrar</button>
+      <button id="btnCerrarMensaje">Cerrar</button>
     </div>
-    <script src="script.js"></script>
+  </main>
+  <footer>
+    <div class="footer-top">
+      <div class="footer-column">
+        <h3>Sobre Nosotros</h3>
+        <p>Bienvenido a GameHouse, ¡tu destino definitivo para todo lo relacionado con los videojuegos! Ya seas un jugador casual, un gamer hardcore o algo intermedio, tenemos todo lo que necesitas para mejorar tu experiencia de juego. Desde las últimas consolas y accesorios hasta una amplia selección de juegos de todos los géneros, estamos aquí para alimentar tu pasión por los videojuegos. ¡Sumérgete en nuestro mundo y que comiencen los juegos!</p>
+      </div>
+      <div class="footer-column">
+        <h3>Enlaces Rápidos</h3>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Productos</a></li>
+          <li><a href="#">Sobre Nosotros</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contacto</h3>
+        <p>Calle 123</p>
+        <p>Ciudad, País</p>
+        <p>Email: info@gamehouse.com</p>
+        <p>Teléfono: +123-456-7890</p>
+      </div>
+      <div class="footer-column">
+        <h3>Síguenos</h3>
+        <ul class="social-icons">
+          <li><a href="https://www.facebook.com"><img src="images/face.png" alt="Facebook"></a></li>
+          <li><a href="https://twitter.com"><img src="images/x.jpg" alt="Twitter"></a></li>
+          <li><a href="https://www.instagram.com"><img src="images/insta.jpg" alt="Instagram"></a></li>
+          <li><a href="https://www.linkedin.com"><img src="images/linkedin.png" alt="LinkedIn"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2024 GameHouse | Diseñado por Excofier Santiago
+    </div>
+  </footer>
+  <script src="script.js"></script>
 </body>
-</main>
-
-<!-- Pie de página -->
-<footer>
-  <p>&copy; 2024 Excofier Santiago - Coder House</p>
-</footer>
-
 </html>
