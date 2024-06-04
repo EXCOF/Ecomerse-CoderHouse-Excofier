@@ -26,6 +26,32 @@ header h1 {
   /* Eliminar el margen predeterminado */
 }
 
+/* Estilo para la barra de búsqueda */
+#buscador {
+  padding: 8px 12px; /* Añade un relleno interno para hacer que el campo de búsqueda sea más grande */
+  border: 2px solid #ccc; /* Agrega un borde sólido gris */
+  border-radius: 20px; /* Agrega esquinas redondeadas */
+  font-size: 16px; /* Tamaño del texto */
+  width: 300px; /* Ancho del campo de búsqueda */
+  outline: none; /* Elimina el resaltado azul al enfocar el campo */
+}
+
+/* Estilo para el botón de búsqueda */
+#btnBuscar {
+  padding: 8px 16px; /* Añade un relleno interno para hacer que el botón sea más grande */
+  background-color: #4CAF50; /* Color de fondo verde */
+  color: white; /* Color del texto blanco */
+  border: none; /* Elimina el borde del botón */
+  border-radius: 20px; /* Agrega esquinas redondeadas */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse sobre el botón */
+  transition: background-color 0.3s; /* Agrega una transición suave al color de fondo */
+}
+
+/* Estilo para el botón de búsqueda al pasar el mouse sobre él */
+#btnBuscar:hover {
+  background-color: #45a049; /* Cambia el color de fondo al verde oscuro */
+}
+
 /* Cuerpo */
 body {
   font-family: 'Open Sans', sans-serif; /* Fuente legible */
