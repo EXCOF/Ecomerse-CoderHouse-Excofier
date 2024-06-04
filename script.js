@@ -122,13 +122,22 @@ function mostrarCarrito() {
   });
 }
 
-// Función para quitar un producto del carrito
+// Función para quitar un producto específico del carrito
 function quitarDelCarrito(idProducto) {
-  // Filtrar el carrito para eliminar el producto con el ID proporcionado
-  carrito = carrito.filter((producto) => producto.id !== idProducto);
-  // Guardar el carrito actualizado en el LocalStorage y mostrar el carrito actualizado
-  guardarCarritoEnLocalStorage();
-  mostrarCarrito();
+  // Encontrar el índice del producto en el carrito
+  const index = carrito.findIndex((producto) => producto.id === idProducto);
+  
+  // Verificar si se encontró el producto en el carrito
+  if (index !== -1) {
+    // Eliminar el producto del carrito usando el índice encontrado
+    carrito.splice(index, 1);
+    // Guardar el carrito actualizado en el LocalStorage y mostrar el carrito actualizado
+    guardarCarritoEnLocalStorage();
+    mostrarCarrito();
+  } else {
+    // Si el producto no se encuentra en el carrito, mostrar un mensaje de error
+    mostrarMensajeModal("El producto seleccionado no se encuentra en el carrito.");
+  }
 }
 
 // Función para vaciar el carrito completamente
