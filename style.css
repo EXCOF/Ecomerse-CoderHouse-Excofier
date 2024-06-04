@@ -7,7 +7,6 @@ header {
   padding: 20px; /* Añade un relleno de 20px alrededor */
 }
 
-/* Cambia la dirección del flex a fila en pantallas anchas */
 @media (min-width: 768px) {
   header {
     flex-direction: row; /* Coloca los elementos en una fila */
@@ -70,7 +69,6 @@ h1, h3 {
   box-sizing: border-box; /* Incluye el relleno y el borde en el tamaño total */
 }
 
-/* Cambia el ancho de los productos en pantallas anchas */
 @media (min-width: 768px) {
   #listaProductos li {
     width: 48%; /* Ancho del 48% */
@@ -469,6 +467,25 @@ footer {
   #listaProductos li {
     width: 100%; /* Ancho completo */
     padding: 10px; /* Relleno interno */
+    flex-direction: column; /* Coloca los elementos en una columna */
+    align-items: center; /* Alinea los elementos al centro */
+  }
+
+  #listaProductos li img {
+    margin-bottom: 10px; /* Margen inferior */
+  }
+
+  #listaProductos li h3 {
+    margin-bottom: 10px; /* Margen inferior */
+  }
+
+  #listaProductos li p {
+    margin-bottom: 10px; /* Margen inferior */
+  }
+
+  #listaProductos li button {
+    width: 100%; /* Ancho completo */
+    margin-right: 0; /* Sin margen derecho */
   }
 
   .footer-column h3 {
