@@ -25,36 +25,60 @@ function mostrarProductos(filtroCategoria = "") {
   // Limpiar la lista antes de agregar nuevos elementos
   listaProductos.innerHTML = "";
 
-  // Mostrar todos los productos cuando la página se carga por primera vez o se reinicia
-  productos.forEach((producto) => {
-    // Verificar si el producto coincide con la categoría seleccionada (si se proporciona)
-    if (filtroCategoria === "" || producto.categoria === filtroCategoria) {
-      // Crear un nuevo elemento <li> para cada producto
-      const li = document.createElement("li");
-      // Agregar HTML para mostrar el nombre, imagen, precio y botón "Agregar al carrito" de cada producto
-      li.innerHTML = `
-        <h3>${producto.nombre}</h3>
-        <img src="${producto.imagen}" alt="${producto.nombre}">
-        <p>Precio: $${producto.precio}</p>
-        <button data-id="${producto.id}">Agregar al carrito</button>
-      `;
+  // Obtener todos los productos si no se proporciona un filtro de categoría
+  const productosAMostrar = filtroCategoria === "" ? productos : productos.filter(producto => producto.categoria === filtroCategoria);
 
-      // Agregar evento click al botón "Agregar al carrito" para llamar a la función agregarAlCarrito
-      li.querySelector("button").addEventListener("click", () => {
-        agregarAlCarrito(producto.id);
-      });
+  // Mostrar los productos en la lista
+  productosAMostrar.forEach((producto) => {
+    // Crear un nuevo elemento <li> para cada producto
+    const li = document.createElement("li");
+    // Agregar HTML para mostrar el nombre, imagen, precio y botón "Agregar al carrito" de cada producto
+    li.innerHTML = `
+      <h3>${producto.nombre}</h3>
+      <img src="${producto.imagen}" alt="${producto.nombre}">
+      <p>Precio: $${producto.precio}</p>
+      <button data-id="${producto.id}">Agregar al carrito</button>
+    `;
 
-      // Agregar el elemento <li> a la lista de productos
-      listaProductos.appendChild(li);
-    }
+    // Agregar evento click al botón "Agregar al carrito" para llamar a la función agregarAlCarrito
+    li.querySelector("button").addEventListener("click", () => {
+      agregarAlCarrito(producto.id);
+    });
+
+    // Agregar el elemento <li> a la lista de productos
+    listaProductos.appendChild(li);
   });
 }
 
+// Función para filtrar productos por categoría y mostrarlos en la lista de productos
+function filtrarPorCategoria(categoria) {
+  // Mostrar los productos filtrados por la categoría seleccionada
+  mostrarProductos(categoria);
+}
+
+// Evento que se ejecuta cuando se carga el contenido de la página
+document.addEventListener("DOMContentLoaded", () => {
+  // Cargar los productos desde un archivo JSON y mostrarlos en la lista de productos
+  fetch('productos.json')
+    .then(response => response.json())
+    .then(data => {
+      productos = data;
+      mostrarProductos(); // Mostrar todos los productos al cargar la página
+    })
+    .catch(error => console.error('Error al cargar los productos:', error));
+
+  // Agregar eventos a los botones de filtro por categoría
+  document.getElementById("filtroConsolas").addEventListener("click", () => filtrarPorCategoria("Consolas"));
+  document.getElementById("filtroPC").addEventListener("click", () => filtrarPorCategoria("PC"));
+  document.getElementById("filtroAccesorios").addEventListener("click", () => filtrarPorCategoria("Accesorios"));
+  document.getElementById("filtroTodos").addEventListener("click", () => mostrarProductos()); // Mostrar todos los productos al hacer clic en "Todos"
+});
 // Mostrar todos los productos al cargar la página
 window.addEventListener("load", mostrarProductos);
 
 // También mostrar todos los productos cuando se reinicia la página
 window.addEventListener("beforeunload", mostrarProductos);
+
 
 // Función para agregar un producto al carrito
 function agregarAlCarrito(idProducto) {
