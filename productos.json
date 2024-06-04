@@ -1,0 +1,10 @@
+[
+    { "id": 1, "nombre": "Play 5", "precio": 100, "imagen": "images/play5.jpg", "categoria": "Consolas" },
+    { "id": 2, "nombre": "Xbox X", "precio": 200, "imagen": "images/xbox_x.jpg", "categoria": "Consolas" },
+    { "id": 3, "nombre": "PC Gamer", "precio": 300, "imagen": "images/pcgamer.png", "categoria": "PC" },
+    { "id": 4, "nombre": "Nintendo Switch", "precio": 250, "imagen": "images/switch.jpg", "categoria": "Consolas" },
+    { "id": 5, "nombre": "Headset Gamer", "precio": 50, "imagen": "images/headset.jpg", "categoria": "Accesorios" },
+    { "id": 6, "nombre": "Mouse Gamer", "precio": 40, "imagen": "images/mouse.jpg", "categoria": "Accesorios" },
+    { "id": 7, "nombre": "Teclado Mecánico", "precio": 70, "imagen": "images/keyboard.jpg", "categoria": "Accesorios" },
+    { "id": 8, "nombre": "Monitor 144Hz", "precio": 200, "imagen": "images/monitor.jfif", "categoria": "PC" }
+]

@@ -24,8 +24,8 @@ header h1 {
   /* Ajustar el tamaño de la fuente del título */
   margin: 0;
   /* Eliminar el margen predeterminado */
-
 }
+
 /* Cuerpo */
 body {
   font-family: 'Open Sans', sans-serif; /* Fuente legible */
@@ -66,30 +66,31 @@ h1, h3 {
   justify-content: space-between;
 }
 
-/* Elementos de la lista de productos */
+/* Contenedor de cada producto */
 #listaProductos li {
-  width: 33.33%; /* 3 columnas por fila */
+  width: 48%; /* 2 productos por fila */
   padding: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #fff;
+  box-sizing: border-box; /* Incluir relleno y bordes en el ancho */
 }
 
-/* Media query para pantallas pequeñas */
+/* Media query para pantallas medianas */
 @media (max-width: 768px) {
   #listaProductos li {
-    width: 50%; /* 2 columnas por fila */
+    width: 100%; /* 1 producto por fila en pantallas pequeñas */
   }
 }
 
-/* Media query para pantallas aún más pequeñas */
-@media (max-width: 480px) {
-  #listaProductos li {
-    width: 100%; /* 1 columna por fila */
-  }
+/* Estilos para la imagen */
+#listaProductos li img {
+  max-width: 100%; /* Ajustar la imagen al ancho del contenedor */
+  height: auto; /* Altura automática para mantener la proporción */
+  display: block; /* Asegurar que la imagen no tenga espacios en blanco debajo */
+  margin-bottom: 10px; /* Espaciado inferior entre la imagen y el nombre */
 }
-
 
 /* Listas de productos y carrito */
 #listaProductos,
@@ -120,6 +121,13 @@ h1, h3 {
   font-size: 1.2em;
 }
 
+/* Estilos para el nombre del producto */
+#listaProductos li h3 {
+  margin: 0; /* Eliminar el margen */
+  font-size: 1.2em; /* Tamaño de fuente del nombre */
+  color: #333; /* Color del texto */
+}
+
 /* Descripción de los elementos */
 #listaProductos li p,
 #listaCarrito li p {
@@ -129,7 +137,14 @@ h1, h3 {
   /* Color de texto más claro para los precios */
 }
 
-/* Botón  "Agregar al carrito" */
+/* Estilos para el precio */
+#listaProductos li p {
+  margin: 5px 0; /* Espaciado superior e inferior */
+  font-size: 1em; /* Tamaño de fuente del precio */
+  color: #666; /* Color del texto */
+}
+
+/* Botón "Agregar al carrito" */
 #listaProductos li button {
   background-color: #4CAF50;
   color: white;
@@ -151,6 +166,11 @@ h1, h3 {
   cursor: pointer;
 }
 
+/* Efecto hover para el botón */
+#listaProductos li button:hover {
+  background-color: #45a049; /* Color más oscuro al pasar el mouse */
+}
+
 /* Total del carrito */
 #totalCarrito {
   font-weight: bold;
@@ -158,7 +178,7 @@ h1, h3 {
   margin-top: 20px;
 }
 
-/* Botones vaciar, comprar continuar y cancelar compra*/
+/* Botones vaciar, comprar continuar y cancelar compra */
 #btnVaciarCarrito,
 #btnComprar,
 #btnContinuarCompra,
@@ -170,6 +190,21 @@ h1, h3 {
   border-radius: 5px;
   cursor: pointer;
   margin-right: 10px;
+}
+
+/* Estilos para los botones de filtro */
+#filtros button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#filtros button:hover {
+  background-color: #0056b3;
 }
 
 /* Estilos para el formulario de compra */
