@@ -1,476 +1,486 @@
 /* Encabezado de la página */
 header {
-  display: flex;
-  /* Activar el diseño flexible */
-  align-items: center;
-  /* Alinear elementos verticalmente */
-  justify-content: space-between;
-  /* Distribuir elementos horizontalmente */
-  padding: 20px;
-  /* Agregar espacio alrededor del contenido */
+  display: flex; /* Utiliza un contenedor flexible */
+  flex-direction: column; /* Coloca los elementos en una columna */
+  align-items: center; /* Alinea los elementos en el centro */
+  justify-content: space-between; /* Distribuye el espacio uniformemente */
+  padding: 20px; /* Añade un relleno de 20px alrededor */
 }
 
-/* Imagen */
+/* Cambia la dirección del flex a fila en pantallas anchas */
+@media (min-width: 768px) {
+  header {
+    flex-direction: row; /* Coloca los elementos en una fila */
+  }
+}
+
+/* Imagen del encabezado */
 header img {
-  max-width: 150px;
-  /* Ajustar el ancho máximo de la imagen */
-  margin-right: 20px;
-  /* Agregar espacio a la derecha de la imagen */
+  max-width: 150px; /* Limita el ancho máximo a 150px */
+  margin-right: 20px; /* Añade un margen derecho de 20px */
 }
 
-/* Título */
+/* Título del encabezado */
 header h1 {
-  font-size: 2.5em;
-  /* Ajustar el tamaño de la fuente del título */
-  margin: 0;
-  /* Eliminar el margen predeterminado */
+  font-size: 2.5em; /* Tamaño de fuente grande */
+  margin: 0; /* Sin margen */
 }
 
 /* Estilo para la barra de búsqueda */
 #buscador {
-  padding: 8px 12px; /* Añade un relleno interno para hacer que el campo de búsqueda sea más grande */
-  border: 2px solid #ccc; /* Agrega un borde sólido gris */
-  border-radius: 20px; /* Agrega esquinas redondeadas */
+  padding: 8px 12px; /* Relleno interno */
+  border: 2px solid #ccc; /* Borde sólido gris */
+  border-radius: 20px; /* Bordes redondeados */
   font-size: 16px; /* Tamaño del texto */
-  width: 300px; /* Ancho del campo de búsqueda */
-  outline: none; /* Elimina el resaltado azul al enfocar el campo */
+  width: 100%; /* Ancho completo */
+  max-width: 300px; /* Ancho máximo de 300px */
+  outline: none; /* Sin contorno al enfocarse */
 }
 
-/* Estilo para el botón de búsqueda */
-#btnBuscar {
-  padding: 8px 16px; /* Añade un relleno interno para hacer que el botón sea más grande */
-  background-color: #4CAF50; /* Color de fondo verde */
-  color: white; /* Color del texto blanco */
-  border: none; /* Elimina el borde del botón */
-  border-radius: 20px; /* Agrega esquinas redondeadas */
-  cursor: pointer; /* Cambia el cursor al pasar el mouse sobre el botón */
-  transition: background-color 0.3s; /* Agrega una transición suave al color de fondo */
-}
-
-/* Estilo para el botón de búsqueda al pasar el mouse sobre él */
-#btnBuscar:hover {
-  background-color: #45a049; /* Cambia el color de fondo al verde oscuro */
-}
-
-/* Cuerpo */
+/* Cuerpo de la página */
 body {
-  font-family: 'Open Sans', sans-serif; /* Fuente legible */
-  background-color: #f5f5f5;
-  /* Color de fondo claro */
-  background-image: url("images/fondo.jpg");
-  background-repeat: no-repeat;
-  /* Evitar que la imagen se repita */
-  background-size: cover;
-  /* Ajustar la imagen al tamaño del contenedor */
-  font-family: 'Open Sans', sans-serif; 
-  /* Tipografia */
+  font-family: 'Open Sans', sans-serif; /* Tipografía */
+  background-color: #f5f5f5; /* Color de fondo */
+  background-image: url("images/fondo.jpg"); /* Imagen de fondo */
+  background-repeat: no-repeat; /* No repetir la imagen de fondo */
+  background-size: cover; /* Ajustar la imagen al contenedor */
 }
 
-/* Encabezado */
-h1 {
-  text-align: center;
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  color: #fff;
-  /* Color de texto más oscuro */
-}
-
-h3 {
-  color: #fff;
-  font-size: 2.5em;
-}
-
-/* Títulos */
 h1, h3 {
-  font-family: 'Poppins', sans-serif; /* Tipografia */
+  text-align: center; /* Texto centrado */
+  font-size: 2.5em; /* Tamaño de fuente grande */
+  color: #fff; /* Color de texto blanco */
 }
 
 /* Contenedor de la lista de productos */
 #listaProductos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: flex; /* Utiliza un contenedor flexible */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+  justify-content: space-between; /* Distribuye el espacio uniformemente */
 }
 
 /* Contenedor de cada producto */
 #listaProductos li {
-  width: 48%; /* 2 productos por fila */
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #fff;
-  box-sizing: border-box; /* Incluir relleno y bordes en el ancho */
+  width: 100%; /* Ancho completo */
+  padding: 15px; /* Relleno interno */
+  margin-bottom: 20px; /* Margen inferior */
+  border: 1px solid #ddd; /* Borde sólido gris claro */
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: #fff; /* Fondo blanco */
+  box-sizing: border-box; /* Incluye el relleno y el borde en el tamaño total */
 }
 
-/* Media query para pantallas medianas */
-@media (max-width: 768px) {
+/* Cambia el ancho de los productos en pantallas anchas */
+@media (min-width: 768px) {
   #listaProductos li {
-    width: 100%; /* 1 producto por fila en pantallas pequeñas */
+    width: 48%; /* Ancho del 48% */
   }
 }
 
-/* Estilos para la imagen */
+/* Estilos para la imagen de los productos */
 #listaProductos li img {
-  max-width: 100%; /* Ajustar la imagen al ancho del contenedor */
+  max-width: 100%; /* Ancho máximo del 100% */
   height: auto; /* Altura automática para mantener la proporción */
-  display: block; /* Asegurar que la imagen no tenga espacios en blanco debajo */
-  margin-bottom: 10px; /* Espaciado inferior entre la imagen y el nombre */
+  display: block; /* Muestra la imagen como un bloque */
+  margin-bottom: 10px; /* Margen inferior */
 }
 
 /* Listas de productos y carrito */
 #listaProductos,
 #listaCarrito {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+  list-style-type: none; /* Sin viñetas */
+  padding: 0; /* Sin relleno */
+  margin: 0; /* Sin margen */
 }
 
-/* Elementos de las listas */
+/* Elementos de las listas de productos y carrito */
 #listaProductos li,
 #listaCarrito li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #fff;
-  /* Fondo blanco para los elementos */
+  display: flex; /* Utiliza un contenedor flexible */
+  justify-content: space-between; /* Distribuye el espacio uniformemente */
+  align-items: center; /* Alinea los elementos verticalmente al centro */
+  padding: 15px; /* Relleno interno */
+  margin-bottom: 10px; /* Margen inferior */
+  border: 1px solid #ddd; /* Borde sólido gris claro */
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: #fff; /* Fondo blanco */
 }
 
-/* Títulos de los elementos */
+/* Estilo para el botón de búsqueda */
+#btnBuscar {
+  padding: 8px 16px; /* Relleno interno */
+  background-color: #4CAF50; /* Color de fondo verde */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 20px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+/* Estilo para el botón de búsqueda al pasar el ratón */
+#btnBuscar:hover {
+  background-color: #45a049; /* Color de fondo más oscuro */
+}
+
+/* Títulos de los elementos de las listas */
 #listaProductos li h3,
 #listaCarrito li h3 {
-  margin: 0;
-  font-size: 1.2em;
+  margin: 0; /* Sin margen */
+  font-size: 1.2em; /* Tamaño de fuente */
 }
 
 /* Estilos para el nombre del producto */
 #listaProductos li h3 {
-  margin: 0; /* Eliminar el margen */
-  font-size: 1.2em; /* Tamaño de fuente del nombre */
+  margin: 0; /* Sin margen */
+  font-size: 1.2em; /* Tamaño de fuente */
   color: #333; /* Color del texto */
 }
 
-/* Descripción de los elementos */
+/* Descripción de los elementos de las listas */
 #listaProductos li p,
 #listaCarrito li p {
-  margin: 0;
-  font-size: 0.9em;
-  color: #666;
-  /* Color de texto más claro para los precios */
+  margin: 0; /* Sin margen */
+  font-size: 0.9em; /* Tamaño de fuente */
+  color: #666; /* Color del texto */
 }
 
-/* Estilos para el precio */
+/* Estilos para el precio de los productos */
 #listaProductos li p {
-  margin: 5px 0; /* Espaciado superior e inferior */
-  font-size: 1em; /* Tamaño de fuente del precio */
+  margin: 5px 0; /* Margen superior e inferior */
+  font-size: 1em; /* Tamaño de fuente */
   color: #666; /* Color del texto */
 }
 
 /* Botón "Agregar al carrito" */
 #listaProductos li button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 20px;
+  background-color: #4CAF50; /* Color de fondo verde */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  margin-right: 20px; /* Margen derecho */
 }
 
-/* "Eliminar del carrito" */
+/* Botón "Eliminar del carrito" */
 #listaCarrito li button {
-  margin-left: 10px;
-  padding: 8px 15px;
-  background-color: #f00;
-  /* Color rojo para el botón de eliminar */
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
+  margin-left: 10px; /* Margen izquierdo */
+  padding: 8px 15px; /* Relleno interno */
+  background-color: #f00; /* Color de fondo rojo */
+  color: #fff; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 3px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
 }
 
-/* Efecto hover para el botón */
+/* Efecto hover para el botón "Agregar al carrito" */
 #listaProductos li button:hover {
-  background-color: #45a049; /* Color más oscuro al pasar el mouse */
+  background-color: #45a049; /* Color de fondo más oscuro */
 }
 
 /* Total del carrito */
 #totalCarrito {
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-top: 20px;
+  font-weight: bold; /* Texto en negrita */
+  font-size: 1.1em; /* Tamaño de fuente */
+  margin-top: 20px; /* Margen superior */
 }
 
-/* Botones vaciar, comprar continuar y cancelar compra */
+/* Botones vaciar, comprar, continuar y cancelar compra */
 #btnVaciarCarrito,
 #btnComprar,
 #btnContinuarCompra,
 #btnCancelarCompra {
-  padding: 12px 25px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 10px;
+  padding: 12px 25px; /* Relleno interno */
+  background-color: #007bff; /* Color de fondo azul */
+  color: #fff; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  margin-right: 10px; /* Margen derecho */
 }
 
 /* Estilos para los botones de filtro */
 #filtros button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 5px;
+  padding: 10px 20px; /* Relleno interno */
+  background-color: #007bff; /* Color de fondo azul */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  margin: 5px; /* Margen alrededor */
 }
 
 #filtros button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Color de fondo más oscuro */
 }
 
 /* Estilos para el formulario de compra */
 #modalCompra,
 #modalTotal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 30px;
-  border: 1px solid #ccc;
-  z-index: 100;
-  display: none;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  /* Sombra sutil */
+  position: fixed; /* Posición fija */
+  top: 50%; /* A mitad de la pantalla */
+  left: 50%; /* A mitad de la pantalla */
+  transform: translate(-50%, -50%); /* Centrar */
+  background-color: white; /* Fondo blanco */
+  padding: 30px; /* Relleno interno */
+  border: 1px solid #ccc; /* Borde sólido gris claro */
+  z-index: 100; /* Capa superior */
+  display: none; /* Oculto por defecto */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
-/* Títulos de las modales */
 #modalCompra h2,
 #modalTotal h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.5em;
+  text-align: center; /* Texto centrado */
+  margin-bottom: 20px; /* Margen inferior */
+  font-size: 1.5em; /* Tamaño de fuente */
 }
 
 /* Contenedor del formulario */
 #formularioCompra {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Fondo blanco */
+  padding: 20px; /* Relleno interno */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+  display: flex; /* Utiliza un contenedor flexible */
+  flex-direction: column; /* Coloca los elementos en una columna */
 }
 
 /* Etiquetas del formulario */
 #formularioCompra label {
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 10px;
-  text-align: left;
+  font-family: Arial, sans-serif; /* Tipografía */
+  font-size: 14px; /* Tamaño de fuente */
+  color: #333; /* Color del texto */
+  margin-bottom: 10px; /* Margen inferior */
+  text-align: left; /* Texto alineado a la izquierda */
 }
 
 /* Campos del formulario */
 #formularioCompra input,
 #formularioCompra textarea {
-  width: 100%;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 4px;
-  background-color: #f8f8f8;
+  width: 100%; /* Ancho completo */
+  font-size: 14px; /* Tamaño de fuente */
+  border: 1px solid #ccc; /* Borde sólido gris claro */
+  padding: 10px; /* Relleno interno */
+  border-radius: 4px; /* Bordes redondeados */
+  background-color: #f8f8f8; /* Fondo gris claro */
 }
 
 /* Área de texto del formulario */
 #formularioCompra textarea {
-  min-height: 100px;
+  min-height: 100px; /* Altura mínima */
 }
 
 /* Botón de envío del formulario */
 #formularioCompra button {
-  background-color: #4CAF50;
-  /* Color principal */
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  /* Efecto hover */
+  background-color: #4CAF50; /* Color de fondo verde */
+  padding: 12px 20px; /* Relleno interno */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  color: white; /* Color del texto blanco */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
 }
 
-/* Efecto hover del botón */
+/* Efecto hover del botón de envío del formulario */
 #formularioCompra button:hover {
-  background-color: #3e8e41;
-  /* Color principal más oscuro al pasar el mouse */
-}
-
-/* Diseño del formulario */
-#formularioCompra {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Espaciado entre elementos del formulario */
-#formularioCompra label,
-#formularioCompra input,
-#formularioCompra textarea,
-#formularioCompra button {
-  margin-bottom: 15px;
-}
-
-/* Estilos para pantallas pequeñas */
-@media (max-width: 768px) {
-  #formularioCompra {
-    padding: 10px;
-  }
-
-  #formularioCompra input,
-  #formularioCompra textarea {
-    font-size: 12px;
-  }
+  background-color: #3e8e41; /* Color de fondo más oscuro */
 }
 
 /* Estilos para el modal de mensaje */
 #modalMensaje {
-  color: black; /* Cambiar el color del texto a negro */
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 30px;
-  border: 1px solid #ccc;
-  z-index: 100;
-  display: none;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  color: black; /* Color del texto negro */
+  position: fixed; /* Posición fija */
+  top: 50%; /* A mitad de la pantalla */
+  left: 50%; /* A mitad de la pantalla */
+  transform: translate(-50%, -50%); /* Centrar */
+  background-color: white; /* Fondo blanco */
+  padding: 30px; /* Relleno interno */
+  border: 1px solid #ccc; /* Borde sólido gris claro */
+  z-index: 100; /* Capa superior */
+  display: none; /* Oculto por defecto */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
 /* Título del modal de mensaje */
 #modalMensaje p {
-  margin-bottom: 20px;
-  font-size: 1em;
+  margin-bottom: 20px; /* Margen inferior */
+  font-size: 1em; /* Tamaño de fuente */
 }
 
 /* Botón del modal de mensaje */
 #modalMensaje button {
-  padding: 10px 20px;
-  background-color: #4CAF50; /* Mantener el color del botón */
-  color: white; /* Mantener el color del texto del botón */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 10px 20px; /* Relleno interno */
+  background-color: #4CAF50; /* Color de fondo verde */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
 }
 
 /* Efecto hover del botón del modal de mensaje */
 #modalMensaje button:hover {
-  background-color: #3e8e41; /* Mantener el color principal más oscuro al pasar el mouse */
+  background-color: #3e8e41; /* Color de fondo más oscuro */
 }
 
-/* Estilos para el footer */
+/* Estilos para el pie de página */
 footer {
-  background-color: #333; /* Color de fondo del footer */
-  color: #fff; /* Color del texto del footer */
-  padding: 50px 0; /* Espaciado interno del footer */
-  font-family: 'Open Sans', sans-serif; /* Fuente legible */
+  background-color: #333; /* Color de fondo oscuro */
+  color: #fff; /* Color del texto blanco */
+  padding: 50px 0; /* Relleno interno */
+  font-family: 'Open Sans', sans-serif; /* Tipografía */
 }
 
-/* Contenedor principal del footer */
+/* Contenedor principal del pie de página */
 .footer-top {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap; /* Ajustar contenido a varias filas en pantallas pequeñas */
+  display: flex; /* Utiliza un contenedor flexible */
+  justify-content: space-between; /* Distribuye el espacio uniformemente */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
 }
 
-/* Columna del footer */
+/* Columna del pie de página */
 .footer-column {
-  flex: 1; /* Ocupar espacio disponible */
-  margin-right: 20px; /* Espaciado derecho entre columnas */
+  flex: 1; /* Flex de 1 */
+  margin-right: 20px; /* Margen derecho */
 }
 
 /* Eliminar margen derecho de la última columna */
 .footer-column:last-child {
-  margin-right: 0;
+  margin-right: 0; /* Sin margen derecho */
 }
 
 /* Título de la columna */
 .footer-column h3 {
-  margin-bottom: 20px; /* Espaciado inferior del título */
+  margin-bottom: 20px; /* Margen inferior */
 }
 
 /* Párrafo dentro de la columna */
 .footer-column p {
-  margin-bottom: 10px; /* Espaciado inferior del párrafo */
+  margin-bottom: 10px; /* Margen inferior */
 }
 
 /* Lista dentro de la columna */
 .footer-column ul {
-  list-style-type: none; /* Eliminar viñetas de la lista */
-  padding: 0; /* Eliminar espacio interno */
-  margin: 0; /* Eliminar margen externo */
+  list-style-type: none; /* Sin viñetas */
+  padding: 0; /* Sin relleno */
+  margin: 0; /* Sin margen */
 }
 
 /* Elementos de la lista dentro de la columna */
 .footer-column ul li {
-  margin-bottom: 5px; /* Espaciado inferior entre elementos de la lista */
+  margin-bottom: 5px; /* Margen inferior */
 }
 
 /* Enlaces dentro de la lista */
 .footer-column ul li a {
-  color: #fff; /* Color del texto de los enlaces */
-  text-decoration: none; /* Eliminar subrayado de los enlaces */
+  color: #fff; /* Color del texto blanco */
+  text-decoration: none; /* Sin subrayado */
 }
 
-/* Estilo al pasar el ratón por encima de los enlaces */
+/* Efecto hover de los enlaces dentro de la lista */
 .footer-column ul li a:hover {
-  text-decoration: underline; /* Subrayar al pasar el ratón por encima */
+  text-decoration: underline; /* Subrayado */
 }
 
 /* Iconos sociales */
 .social-icons {
-  list-style-type: none; /* Eliminar viñetas de la lista */
-  padding: 0; /* Eliminar espacio interno */
-  margin: 0; /* Eliminar margen externo */
+  list-style-type: none; /* Sin viñetas */
+  padding: 0; /* Sin relleno */
+  margin: 0; /* Sin margen */
 }
 
 /* Elementos de los iconos sociales */
 .social-icons li {
-  display: inline-block; /* Mostrar en línea */
-  margin-right: 10px; /* Espaciado derecho entre iconos */
+  display: inline-block; /* Muestra en línea */
+  margin-right: 10px; /* Margen derecho */
 }
 
 /* Eliminar margen derecho del último icono */
 .social-icons li:last-child {
-  margin-right: 0;
+  margin-right: 0; /* Sin margen derecho */
 }
 
 /* Estilo de los enlaces de los iconos sociales */
 .social-icons li a {
-  color: #fff; /* Color del texto de los enlaces */
-  text-decoration: none; /* Eliminar subrayado de los enlaces */
-  font-size: 20px; /* Tamaño de fuente de los iconos */
+  color: #fff; /* Color del texto blanco */
+  text-decoration: none; /* Sin subrayado */
+  font-size: 20px; /* Tamaño de fuente */
 }
 
-/* Estilo al pasar el ratón por encima de los enlaces de los iconos sociales */
+/* Efecto hover de los enlaces de los iconos sociales */
 .social-icons li a:hover {
-  color: #ddd; /* Cambiar color al pasar el ratón por encima */
+  color: #ddd; /* Color más claro */
 }
 
 /* Estilos para las imágenes de las redes sociales */
 .social-icons img {
-  width: 100px; /* Tamaño deseado */
-  height: auto; /* Altura automática para mantener la proporción */
-  margin-right: 10px; /* Espacio entre cada imagen */
+  width: 100px; /* Ancho de la imagen */
+  height: auto; /* Altura automática */
+  margin-right: 10px; /* Margen derecho */
 }
 
-/* Parte inferior del footer */
+/* Parte inferior del pie de página */
 .footer-bottom {
-  background-color: #222; /* Color de fondo */
-  padding: 10px 0; /* Espaciado interno superior e inferior */
-  text-align: center; /* Alinear texto al centro */
+  background-color: #222; /* Color de fondo oscuro */
+  padding: 10px 0; /* Relleno interno */
+  text-align: center; /* Texto centrado */
+}
+
+/* Ajustes responsivos para tablets */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; /* Coloca los elementos en una columna */
+  }
+
+  #listaProductos li {
+    width: 100%; /* Ancho completo */
+  }
+
+  .footer-column {
+    margin-right: 0; /* Sin margen derecho */
+    margin-bottom: 20px; /* Margen inferior */
+  }
+
+  .footer-top {
+    flex-direction: column; /* Coloca los elementos en una columna */
+    align-items: center; /* Alinea los elementos al centro */
+  }
+
+  #formularioCompra {
+    padding: 10px; /* Relleno interno */
+  }
+
+  #formularioCompra input,
+  #formularioCompra textarea {
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+  }
+}
+
+/* Ajustes responsivos para móviles */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2em; /* Tamaño de fuente más pequeño */
+  }
+
+  #buscador {
+    width: 100%; /* Ancho completo */
+  }
+
+  #listaProductos li {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Relleno interno */
+  }
+
+  .footer-column h3 {
+    font-size: 1.2em; /* Tamaño de fuente más pequeño */
+  }
+
+  .footer-column p,
+  .footer-column ul li {
+    font-size: 0.9em; /* Tamaño de fuente más pequeño */
+  }
+
+  .social-icons img {
+    width: 50px; /* Ancho de la imagen más pequeño */
+  }
 }
