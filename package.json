@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "ecomerse-coderhouse-excofier",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,8 +8,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.19.2"
-  },
   "description": ""
 }
