@@ -56,23 +56,38 @@ function filtrarPorCategoria(categoria) {
   mostrarProductos(categoria);
 }
 
-// Evento que se ejecuta cuando se carga el contenido de la página
+// Espera a que el DOM esté completamente cargado antes de ejecutar el código
 document.addEventListener("DOMContentLoaded", () => {
-  // Cargar los productos desde un archivo JSON y mostrarlos en la lista de productos
-  fetch('productos.json')
-    .then(response => response.json())
+  
+  // Realiza una solicitud HTTP GET para obtener los datos de productos desde el servidor
+  fetch('/api/productos')
+    .then(response => response.json()) // Convierte la respuesta a JSON
     .then(data => {
-      productos = data;
-      mostrarProductos(); // Mostrar todos los productos al cargar la página
+      productos = data; // Almacena los productos obtenidos en la variable 'productos'
+      mostrarProductos(); // Llama a la función para mostrar los productos en la página
     })
-    .catch(error => console.error('Error al cargar los productos:', error));
+    .catch(error => console.error('Error al cargar los productos:', error)); // Muestra un mensaje de error si la solicitud falla
 
-  // Agregar eventos a los botones de filtro por categoría
+  // Añade un evento de clic al botón de filtro "Consolas" para filtrar productos de la categoría "Consolas"
   document.getElementById("filtroConsolas").addEventListener("click", () => filtrarPorCategoria("Consolas"));
+  // Añade un evento de clic al botón de filtro "PC" para filtrar productos de la categoría "PC"
   document.getElementById("filtroPC").addEventListener("click", () => filtrarPorCategoria("PC"));
+  // Añade un evento de clic al botón de filtro "Accesorios" para filtrar productos de la categoría "Accesorios"
   document.getElementById("filtroAccesorios").addEventListener("click", () => filtrarPorCategoria("Accesorios"));
-  document.getElementById("filtroTodos").addEventListener("click", () => mostrarProductos()); // Mostrar todos los productos al hacer clic en "Todos"
+  // Añade un evento de clic al botón de filtro "Todos" para mostrar todos los productos
+  document.getElementById("filtroTodos").addEventListener("click", () => mostrarProductos());
+  // Añade un evento de clic al botón "Vaciar carrito" para vaciar el carrito de compras
+  document.getElementById("btnVaciarCarrito").addEventListener("click", vaciarCarrito);
+  // Añade un evento de clic al botón "Comprar" para mostrar el total del carrito en un modal
+  document.getElementById("btnComprar").addEventListener("click", mostrarTotalEnModal);
+  // Añade un evento de envío al formulario de compra para procesar la compra cuando se envía el formulario
+  document.getElementById("formularioCompra").addEventListener("submit", procesarCompra);
+  // Añade un evento de entrada al campo de búsqueda para buscar productos en tiempo real mientras se escribe
+  document.getElementById("buscador").addEventListener("input", buscarProducto);
+  // Muestra el contenido del carrito en la página al cargar la página
+  mostrarCarrito();
 });
+
 // Mostrar todos los productos al cargar la página
 window.addEventListener("load", mostrarProductos);
 
