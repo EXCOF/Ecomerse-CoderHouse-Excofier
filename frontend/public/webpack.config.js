@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  // configuraciones de webpack
+  // configuraciones de webpackgit rebase
   resolve: {
     fallback: {
       "path": require.resolve("path-browserify"),
