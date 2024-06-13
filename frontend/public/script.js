@@ -1,13 +1,13 @@
 // Definir un array de productos
 let productos = [
   { "id": 1, "nombre": "Play 5", "precio": 100, "imagen": "images/play5.jpg", "categoria": "Consolas" },
-{ "id": 2, "nombre": "Xbox X", "precio": 200, "imagen": "images/xbox_x.jpg", "categoria": "Consolas" },
-{ "id": 3, "nombre": "PC Gamer", "precio": 300, "imagen": "images/pcgamer.png", "categoria": "PC" },
-{ "id": 4, "nombre": "Nintendo Switch", "precio": 250, "imagen": "images/switch.jpg", "categoria": "Consolas" },
-{ "id": 5, "nombre": "Headset Gamer", "precio": 50, "imagen": "images/headset.jpg", "categoria": "Accesorios" },
-{ "id": 6, "nombre": "Mouse Gamer", "precio": 40, "imagen": "images/mouse.jpg", "categoria": "Accesorios" },
-{ "id": 7, "nombre": "Teclado Mecánico", "precio": 70, "imagen": "images/keyboard.jpg", "categoria": "Accesorios" },
-{ "id": 8, "nombre": "Monitor 144Hz", "precio": 200, "imagen": "images/monitor.jfif", "categoria": "PC" }
+  { "id": 2, "nombre": "Xbox X", "precio": 200, "imagen": "images/xbox_x.jpg", "categoria": "Consolas" },
+  { "id": 3, "nombre": "PC Gamer", "precio": 300, "imagen": "images/pcgamer.png", "categoria": "PC" },
+  { "id": 4, "nombre": "Nintendo Switch", "precio": 250, "imagen": "images/switch.jpg", "categoria": "Consolas" },
+  { "id": 5, "nombre": "Headset Gamer", "precio": 50, "imagen": "images/headset.jpg", "categoria": "Accesorios" },
+  { "id": 6, "nombre": "Mouse Gamer", "precio": 40, "imagen": "images/mouse.jpg", "categoria": "Accesorios" },
+  { "id": 7, "nombre": "Teclado Mecánico", "precio": 70, "imagen": "images/keyboard.jpg", "categoria": "Accesorios" },
+  { "id": 8, "nombre": "Monitor 144Hz", "precio": 200, "imagen": "images/monitor.jfif", "categoria": "PC" }
 ];
 
 // Inicializar el carrito de compras desde el LocalStorage
@@ -58,7 +58,6 @@ function filtrarPorCategoria(categoria) {
 
 // Espera a que el DOM esté completamente cargado antes de ejecutar el código
 document.addEventListener("DOMContentLoaded", () => {
-  
   // Realiza una solicitud HTTP GET para obtener los datos de productos desde el servidor
   fetch('/api/productos')
     .then(response => response.json()) // Convierte la respuesta a JSON
@@ -87,13 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Muestra el contenido del carrito en la página al cargar la página
   mostrarCarrito();
 });
-
-// Mostrar todos los productos al cargar la página
-window.addEventListener("load", mostrarProductos);
-
-// También mostrar todos los productos cuando se reinicia la página
-window.addEventListener("beforeunload", mostrarProductos);
-
 
 // Función para agregar un producto al carrito
 function agregarAlCarrito(idProducto) {
@@ -246,8 +238,6 @@ function mostrarMensajeModal(mensaje) {
   });
 }
 
-
-
 // Función para procesar la compra, validar los datos del formulario y mostrar el modal de agradecimiento si los datos son válidos
 function procesarCompra(event) {
   event.preventDefault();
@@ -265,7 +255,6 @@ function procesarCompra(event) {
     carrito = []; // Vaciar el carrito
     guardarCarritoEnLocalStorage(); // Guardar el carrito vacío en el LocalStorage
     mostrarCarrito(); // Mostrar el carrito vacío en la interfaz
-    document.getElementById("modalCompra").style.display = "none";
   } else {
     // Si los datos no son válidos, mostrar un mensaje de error indicando que se deben completar correctamente todos los campos del formulario
     mostrarMensajeModal("Por favor, completa correctamente todos los campos del formulario.");
@@ -310,12 +299,6 @@ function mostrarProductosConFiltro(productosFiltrados) {
     // Agregar el elemento <li> a la lista de productos
     listaProductos.appendChild(li);
   });
-}
-
-// Función para filtrar productos por categoría y mostrarlos en la lista de productos
-function filtrarPorCategoria(categoria) {
-  // Mostrar los productos filtrados por la categoría seleccionada
-  mostrarProductos(categoria);
 }
 
 // Evento que se ejecuta cuando se carga el contenido de la página

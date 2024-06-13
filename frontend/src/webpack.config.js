@@ -1,83 +1,36 @@
-// Importamos el módulo 'path' de Node.js
-const path = require('path');
+const path = require('path'); // Importa el módulo Path para manejar rutas de archivos
 
-// Exportamos la configuración del webpack
 module.exports = {
-  // Configuración para resolver módulos
-  resolve: {
-    // Configuración de fallback para módulos que no tienen soporte nativo en el navegador
-    fallback: {
-      // Resuelve el módulo 'path' para navegadores utilizando 'path-browserify'
-      "path": require.resolve("path-browserify"),
-      // Resuelve el módulo 'zlib' utilizando 'browserify-zlib'
-      "zlib": require.resolve("browserify-zlib"),
-      // Resuelve el módulo 'querystring' utilizando 'querystring-es3'
-      "querystring": require.resolve("querystring-es3"),
-      // Resuelve el módulo 'crypto' utilizando 'crypto-browserify'
-      "crypto": require.resolve("crypto-browserify"),
-      // Resuelve el módulo 'stream' utilizando 'stream-browserify'
-      "stream": require.resolve("stream-browserify"),
-      // Resuelve el módulo 'http' utilizando 'stream-http'
-      "http": require.resolve("stream-http"),
-      // Resuelve el módulo 'url' utilizando 'url'
-      "url": require.resolve("url/"),
-      // Resuelve el módulo 'buffer' utilizando 'buffer'
-      "buffer": require.resolve("buffer/"),
-      // Resuelve el módulo 'util' utilizando 'util'
-      "util": require.resolve("util/"),
-      // Desactiva el módulo 'fs' porque no tiene un polyfill adecuado para el navegador
-      "fs": false,
-      // Desactiva el módulo 'net' porque no tiene un polyfill adecuado para el navegador
-      "net": false
-    }
-  },
-  // Configuración de entrada
-  entry: './src/index.js',
-  // Configuración de salida
+  entry: './src/index.js', // Archivo de entrada principal para Webpack
   output: {
-    // Directorio de salida
-    path: path.resolve(__dirname, 'dist'),
-    // Nombre del archivo de salida
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'dist'), // Carpeta de salida para los archivos compilados
+    filename: 'bundle.js' // Nombre del archivo de salida
   },
-  // Configuración de módulos
   module: {
-    // Reglas para cargar diferentes tipos de archivos
     rules: [
       {
-        // Regla para archivos JavaScript
-        test: /\.js$/,
-        // Excluye la carpeta 'node_modules'
-        exclude: /node_modules/,
-        // Usa el loader 'babel-loader' con las opciones de presets '@babel/preset-env' y '@babel/preset-react'
+        test: /\.js$/, // Regla para archivos JavaScript
+        exclude: /node_modules/, // Excluir la carpeta node_modules
         use: {
-          loader: 'babel-loader',
+          loader: 'babel-loader', // Utilizar el loader de Babel para transpilar JavaScript
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
+            presets: ['@babel/preset-env', '@babel/preset-react'] // Presets de Babel para ES6+ y JSX
           }
         }
       },
       {
-        // Regla para archivos CSS
-        test: /\.css$/,
-        // Usa los loaders 'style-loader' y 'css-loader'
-        use: ['style-loader', 'css-loader']
+        test: /\.css$/, // Regla para archivos CSS
+        use: ['style-loader', 'css-loader'] // Utilizar style-loader y css-loader para manejar CSS
       },
       {
-        // Regla para archivos de imágenes
-        test: /\.(png|svg|jpg|gif)$/,
-        // Usa el loader 'file-loader'
-        use: ['file-loader']
+        test: /\.(png|svg|jpg|gif)$/, // Regla para archivos de imágenes
+        use: ['file-loader'] // Utilizar file-loader para manejar archivos estáticos
       }
     ]
   },
-  // Configuración del servidor de desarrollo
   devServer: {
-    // Directorio base del servidor de desarrollo
-    contentBase: path.join(__dirname, 'public'),
-    // Habilita la compresión
-    compress: true,
-    // Puerto del servidor de desarrollo
-    port: 3000
+    contentBase: path.join(__dirname, 'public'), // Carpeta de contenido estático para el servidor de desarrollo
+    compress: true, // Habilitar compresión gzip
+    port: 9000 // Puerto en el que correrá el servidor de desarrollo
   }
 };
