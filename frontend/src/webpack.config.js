@@ -1,10 +1,21 @@
-const path = require('path'); // Importa el módulo Path para manejar rutas de archivos
+const path = require('path');
 
 module.exports = {
-  entry: './src/index.js', // Archivo de entrada principal para Webpack
+  entry: './src/index.js', // Archivo de entrada principal
   output: {
-    path: path.resolve(__dirname, 'dist'), // Carpeta de salida para los archivos compilados
+    path: path.resolve(__dirname, 'dist'), // Carpeta de salida
     filename: 'bundle.js' // Nombre del archivo de salida
+  },
+  resolve: {
+    fallback: {
+      "path": require.resolve("path-browserify"),
+      "crypto": require.resolve("crypto-browserify"),
+      "stream": require.resolve("stream-browserify"),
+      "http": require.resolve("stream-http"),
+      "url": require.resolve("url/"),
+      "buffer": require.resolve("buffer/"),
+      "util": require.resolve("util/")
+    }
   },
   module: {
     rules: [
@@ -14,23 +25,37 @@ module.exports = {
         use: {
           loader: 'babel-loader', // Utilizar el loader de Babel para transpilar JavaScript
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'] // Presets de Babel para ES6+ y JSX
+            presets: ['@babel/preset-env', '@babel/preset-react'] // Presets de Babel
           }
         }
       },
       {
         test: /\.css$/, // Regla para archivos CSS
-        use: ['style-loader', 'css-loader'] // Utilizar style-loader y css-loader para manejar CSS
+        use: ['style-loader', 'css-loader'] // Loaders para manejar CSS
       },
       {
-        test: /\.(png|svg|jpg|gif)$/, // Regla para archivos de imágenes
-        use: ['file-loader'] // Utilizar file-loader para manejar archivos estáticos
+        test: /\.(png|jpg|jpeg|gif|svg)$/, // Regla para archivos de imágenes
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]', // Mantener la estructura y el nombre del archivo
+              context: path.resolve(__dirname, 'src'), // Establecer el contexto
+              outputPath: 'assets', // Carpeta de salida
+              publicPath: '../assets', // Carpeta pública
+              useRelativePaths: true // Usar rutas relativas
+            }
+          }
+        ]
       }
     ]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public'), // Carpeta de contenido estático para el servidor de desarrollo
-    compress: true, // Habilitar compresión gzip
-    port: 9000 // Puerto en el que correrá el servidor de desarrollo
-  }
+    static: {
+      directory: path.join(__dirname, 'public'), // Carpeta pública para servir contenido
+    },
+    compress: true,
+    port: 8080, // Puerto del servidor de desarrollo
+  },
+  mode: 'development'
 };

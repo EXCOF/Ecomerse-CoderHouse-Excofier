@@ -1,17 +1,28 @@
-const express = require('express'); // Importa el módulo Express
-const path = require('path'); // Importa el módulo Path para manejar rutas de archivos
-const app = express(); // Crea una aplicación de Express
-const port = 3000; // Define el puerto en el que correrá el servidor
+// Cargar las variables de entorno
+require('dotenv').config();
 
-// Ruta para obtener productos desde el archivo JSON
+const express = require('express');
+const path = require('path');
+const fs = require('fs');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware para servir archivos estáticos desde la carpeta "public"
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Ruta para obtener los productos desde el archivo JSON
 app.get('/api/productos', (req, res) => {
-  res.sendFile(path.join(__dirname, 'data', 'productos.json')); // Envía el archivo productos.json como respuesta
+  fs.readFile(path.join(__dirname, 'data', 'productos.json'), 'utf8', (err, data) => {
+    if (err) {
+      res.status(500).send('Error al leer el archivo de productos');
+      return;
+    }
+    res.json(JSON.parse(data));
+  });
 });
 
-// Servir archivos estáticos desde la carpeta frontend/public
-app.use(express.static(path.join(__dirname, '../frontend/public'))); // Define la carpeta de archivos estáticos
-
-// Inicia el servidor y escucha en el puerto definido
-app.listen(port, () => {
-  console.log(`Servidor escuchando en http://localhost:${port}`); // Muestra un mensaje en la consola indicando que el servidor está funcionando
+// Iniciar el servidor
+app.listen(PORT, () => {
+  console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
 });
