@@ -1,9 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom'; // Asegúrate de importar ReactDOM
 import { createRoot } from 'react-dom/client';
-import App from './App'; // Asegúrate de que esta importación use mayúsculas
+import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root")); // No es necesario usar ReactDOM.createRoot
 root.render(<App />);
-reportWebVitals();

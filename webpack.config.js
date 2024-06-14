@@ -59,7 +59,7 @@ module.exports = {
       directory: path.join(__dirname, 'public'), // Carpeta pública para servir contenido
     },
     compress: true,
-    port: 3000, // Puerto del servidor de desarrollo
+    port: 8080, // Puerto del servidor de desarrollo
   },
   mode: 'development'
 };
