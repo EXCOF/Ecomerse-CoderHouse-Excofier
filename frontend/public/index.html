@@ -8,139 +8,77 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
   <!-- Enlace a Font Awesome CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-jrJ/yy5wJHpV9c/SBME/kY2eK8lnK1v6AgUC4RjelCVHzJg9h3wU/0wAGSnOZu8w7WRXuZ1Cn7kxUTyrjAhy5A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Enlace a estilos personalizados -->
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="images/icon.png">
 </head>
 <body>
-  <header class="container">
-    <div class="row align-items-center">
-      <div class="col-md-6 text-center text-md-left">
-        <h1>GameHouse</h1>
-      </div>
-      <div class="col-md-6 text-center text-md-right">
-        <img src="images/icon2.png" alt="Logotipo de GameHouse" class="img-fluid">
-      </div>
-      <div class="col-12 mt-3">
-        <input type="text" id="buscador" class="form-control" placeholder="Buscar producto...">
-      </div>
-    </div>
+  <header>
+    <h1>GameHouse</h1>
+    <img src="images/icon2.png" alt="Logotipo de GameHouse">
+    <input type="text" id="buscador" placeholder="Buscar producto...">
   </header>
-  <main class="container mt-4">
+  <main>
     <section id="productos">
       <h1>Productos</h1>
-      <div id="filtros" class="btn-group mb-3">
-        <button id="filtroTodos" class="btn btn-primary">Todos</button>
-        <button id="filtroConsolas" class="btn btn-primary">Consolas</button>
-        <button id="filtroPC" class="btn btn-primary">PC</button>
-        <button id="filtroAccesorios" class="btn btn-primary">Accesorios</button>
+      <div id="filtros">
+        <button id="filtroTodos">Todos</button>
+        <button id="filtroConsolas">Consolas</button>
+        <button id="filtroPC">PC</button>
+        <button id="filtroAccesorios">Accesorios</button>
       </div>
-      <ul id="listaProductos" class="list-unstyled row"></ul>
+      <ul id="listaProductos"></ul>
     </section>
     <section id="carrito">
       <h3>Carrito</h3>
-      <ul id="listaCarrito" class="list-unstyled"></ul>
-      <button id="btnVaciarCarrito" class="btn btn-danger">Vaciar carrito</button>
-      <button id="btnComprar" class="btn btn-success">Comprar</button>
+      <ul id="listaCarrito"></ul>
+      <button id="btnVaciarCarrito">Vaciar carrito</button>
+      <button id="btnComprar">Comprar</button>
     </section>
-    <div id="modalTotal" class="modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Total a pagar: $</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Producto</th>
-                  <th>Precio</th>
-                </tr>
-              </thead>
-              <tbody id="detalleCarrito"></tbody>
-            </table>
-          </div>
-          <div class="modal-footer">
-            <button id="btnContinuarCompra" class="btn btn-primary">Continuar compra</button>
-            <button id="btnCancelarCompra" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          </div>
-        </div>
-      </div>
+    <div id="modalTotal" style="display: none;">
+      <h2>Total a pagar: $</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody id="detalleCarrito"></tbody>
+      </table>
+      <button id="btnContinuarCompra">Continuar compra</button>
+      <button id="btnCancelarCompra">Cancelar</button>
     </div>
-    <div id="modalCompra" class="modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Completa tus datos para confirmar tu compra</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form id="formularioCompra">
-              <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="numeroTarjeta">Número de tarjeta (16 dígitos numerales):</label>
-                <input type="text" id="numeroTarjeta" name="numeroTarjeta" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="dni">DNI (8 dígitos numerales):</label>
-                <input type="text" id="dni" name="dni" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="telefono">Teléfono (10 - 14 dígitos numerales):</label>
-                <input type="tel" id="telefono" name="telefono" class="form-control" required>
-              </div>
-              <button type="submit" class="btn btn-success">Confirmar compra</button>
-            </form>
-          </div>
-        </div>
-      </div>
+    <div id="modalCompra" style="display: none;">
+      <h2>Completa tus datos para confirmar tu compra</h2>
+      <form id="formularioCompra">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <label for="numeroTarjeta">Número de tarjeta (16 dígitos numerales):</label>
+        <input type="text" id="numeroTarjeta" name="numeroTarjeta" required>
+        <label for="dni">DNI (8 dígitos numerales):</label>
+        <input type="text" id="dni" name="dni" required>
+        <label for="telefono">Teléfono (10 - 14 dígitos numerales):</label>
+        <input type="tel" id="telefono" name="telefono" required>
+        <button type="submit">Confirmar compra</button>
+      </form>
     </div>
-    <div id="modalMensaje" class="modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            <p></p>
-          </div>
-          <div class="modal-footer">
-            <button id="btnCerrarMensaje" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-          </div>
-        </div>
-      </div>
+    <div id="modalMensaje" class="modalMensaje" style="display: none;">
+      <p></p>
+      <button id="btnCerrarMensaje">Cerrar</button>
     </div>
-    <div id="modalGracias" class="modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">¡Gracias por tu compra!</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p>Tu pedido se ha procesado correctamente.</p>
-          </div>
-          <div class="modal-footer">
-            <button id="btnCerrarGracias" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-          </div>
-        </div>
-      </div>
+    <div id="modalMensaje" class="modalMensaje" style="display: none;">
+      <h2>¡Gracias por tu compra!</h2>
+      <p>Tu pedido se ha procesado correctamente.</p>
+      <button id="btnCerrarGracias">Cerrar</button>
     </div>
   </main>
-  <footer class="container mt-4">
-    <div class="footer-top row">
-      <div class="footer-column col-md-3">
+  <footer>
+    <div class="footer-top">
+      <div class="footer-column">
         <h3>Sobre Nosotros</h3>
         <p>Bienvenido a GameHouse, ¡tu destino definitivo para todo lo relacionado con los videojuegos! Ya seas un jugador casual, un gamer hardcore o algo intermedio, tenemos todo lo que necesitas para mejorar tu experiencia de juego. Desde las últimas consolas y accesorios hasta una amplia selección de juegos de todos los géneros, estamos aquí para alimentar tu pasión por los videojuegos. ¡Sumérgete en nuestro mundo y que comiencen los juegos!</p>
       </div>
-      <div class="footer-column col-md-3">
+      <div class="footer-column">
         <h3>Enlaces Rápidos</h3>
         <ul>
           <li><a href="#">Inicio</a></li>
@@ -149,32 +87,29 @@
           <li><a href="#">Contacto</a></li>
         </ul>
       </div>
-      <div class="footer-column col-md-3">
+      <div class="footer-column">
         <h3>Contacto</h3>
         <p>Calle 123</p>
         <p>Ciudad, País</p>
         <p>Email: info@gamehouse.com</p>
         <p>Teléfono: +123-456-7890</p>
       </div>
-      <div class="footer-column col-md-3">
+      <div class="footer-column">
         <h3>Síguenos</h3>
-        <ul class="social-icons list-inline">
-          <li class="list-inline-item"><a href="https://www.facebook.com"><img src="images/face.png" alt="Facebook" class="img-fluid"></a></li>
-          <li class="list-inline-item"><a href="https://twitter.com"><img src="images/x.jpg" alt="Twitter" class="img-fluid"></a></li>
-          <li class="list-inline-item"><a href="https://www.instagram.com"><img src="images/insta.jpg" alt="Instagram" class="img-fluid"></a></li>
-          <li class="list-inline-item"><a href="https://www.linkedin.com"><img src="images/linkedin.png" alt="LinkedIn" class="img-fluid"></a></li>
+        <ul class="social-icons">
+          <li><a href="https://www.facebook.com"><img src="images/face.png" alt="Facebook"></a></li>
+          <li><a href="https://twitter.com"><img src="images/x.jpg" alt="Twitter"></a></li>
+          <li><a href="https://www.instagram.com"><img src="images/insta.jpg" alt="Instagram"></a></li>
+          <li><a href="https://www.linkedin.com"><img src="images/linkedin.png" alt="LinkedIn"></a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom text-center">
+    <div class="footer-bottom">
       &copy; 2024 GameHouse | Diseñado por Excofier Santiago
     </div>
   </footer>
-  <!-- Enlace a jQuery, Popper.js y Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <!-- Enlace a Bootstrap JS -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <!-- Enlace al bundle de Webpack -->
-  <script src="dist/bundle.js"></script>
+  <script src="bundle.js"></script>
 </body>
 </html>
