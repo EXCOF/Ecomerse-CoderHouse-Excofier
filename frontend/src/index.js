@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client'; // Importa createRoot desde 'react-dom/client'
 import App from './App.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
@@ -13,5 +14,5 @@ function AppWithCallbackAfterRender() {
 }
 
 const container = document.getElementById('app');
-const root = createRoot(container);
-ReactDOM.render(<AppWithCallbackAfterRender />, document.getElementById('root'));
+const root = createRoot(container); // Utiliza createRoot desde 'react-dom/client'
+root.render(<AppWithCallbackAfterRender />);

@@ -1,4 +1,3 @@
-import App from './App.js';
 
 // Definir un array de productos
 let productos = [
@@ -60,8 +59,15 @@ function filtrarPorCategoria(categoria) {
 
 // Espera a que el DOM esté completamente cargado antes de ejecutar el código
 document.addEventListener("DOMContentLoaded", () => {
+  // Llama a createRoot para renderizar el componente de React
+  const container = document.getElementById('app');
+  const root = ReactDOM.createRoot(container);
+  root.render(<App />);
+});
+// Espera a que el DOM esté completamente cargado antes de ejecutar el código
+document.addEventListener("DOMContentLoaded", () => {
   // Realiza una solicitud HTTP GET para obtener los datos de productos desde el servidor
-  fetch('/api/productos')
+  fetch('/data/productos.json')
     .then(response => response.json()) // Convierte la respuesta a JSON
     .then(data => {
       productos = data; // Almacena los productos obtenidos en la variable 'productos'
