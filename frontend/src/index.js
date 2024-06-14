@@ -13,6 +13,6 @@ function AppWithCallbackAfterRender() {
   return <App />;
 }
 
-const container = document.getElementById('app');
+const container = document.getElementById('App');
 const root = createRoot(container); // Utiliza createRoot desde 'react-dom/client'
 root.render(<AppWithCallbackAfterRender />);
