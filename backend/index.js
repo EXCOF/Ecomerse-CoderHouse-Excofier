@@ -6,7 +6,7 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000; // Si no hay PORT definido en las variables de entorno, usa el puerto 3000
 
 // Middleware para servir archivos estáticos desde la carpeta "public"
 app.use(express.static(path.join(__dirname, 'public')));
