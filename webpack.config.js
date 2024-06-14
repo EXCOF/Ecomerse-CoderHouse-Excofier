@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js', // Archivo de entrada principal
@@ -7,7 +8,6 @@ module.exports = {
     filename: 'bundle.js' // Nombre del archivo de salida
   },
   resolve: {
-    extensions: ['.js', '.jsx'], // Extensiones que Webpack resolverá
     fallback: {
       "path": require.resolve("path-browserify"),
       "crypto": require.resolve("crypto-browserify"),
@@ -24,10 +24,7 @@ module.exports = {
         test: /\.(js|jsx)$/, // Regla para archivos JavaScript y JSX
         exclude: /node_modules/, // Excluir la carpeta node_modules
         use: {
-          loader: 'babel-loader', // Utilizar el loader de Babel para transpilar JavaScript
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'] // Presets de Babel
-          }
+          loader: 'babel-loader', // Utilizar el loader de Babel para transpilar JavaScript y JSX
         }
       },
       {
@@ -43,7 +40,7 @@ module.exports = {
               name: '[path][name].[ext]', // Mantener la estructura y el nombre del archivo
               context: path.resolve(__dirname, 'src'), // Establecer el contexto
               outputPath: 'assets', // Carpeta de salida
-              publicPath: 'assets', // Carpeta pública
+              publicPath: '../assets', // Carpeta pública
               useRelativePaths: true // Usar rutas relativas
             }
           }
@@ -51,12 +48,18 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html', // Archivo HTML de entrada
+      filename: 'index.html' // Archivo HTML de salida
+    })
+  ],
   devServer: {
     static: {
       directory: path.join(__dirname, 'public'), // Carpeta pública para servir contenido
     },
     compress: true,
-    port: 8080, // Puerto del servidor de desarrollo
+    port: 3000, // Puerto del servidor de desarrollo
   },
-  mode: 'development' // Modo de Webpack
+  mode: 'development'
 };
