@@ -4,7 +4,7 @@ const App = () => {
 
   // Efecto que se ejecuta al montar el componente
   useEffect(() => {
-    fetch('/api/productos') // Hace una petición a la API para obtener los productos
+    fetch('/data/productos.json') // Hace una petición a la API para obtener los productos
       .then(response => response.json()) // Convierte la respuesta a JSON
       .then(data => setProductos(data)) // Actualiza el estado con los datos obtenidos
       .catch(error => console.error('Error al cargar los productos:', error)); // Maneja errores
