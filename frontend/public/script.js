@@ -1,3 +1,5 @@
+import App from './App.js';
+
 // Definir un array de productos
 let productos = [
   { "id": 1, "nombre": "Play 5", "precio": 100, "imagen": "images/play5.jpg", "categoria": "Consolas" },

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'; // Importa React y hooks de React
-
 const App = () => {
   const [productos, setProductos] = useState([]); // Estado para almacenar los productos
 
