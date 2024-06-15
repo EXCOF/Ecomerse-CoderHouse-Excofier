@@ -6,13 +6,13 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Si no hay PORT definido en las variables de entorno, usa el puerto 3000
+const PORT = process.env.PORT
 
 // Middleware para servir archivos estáticos desde la carpeta "public"
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Ruta para obtener los productos desde el archivo JSON
-app.get('/data/productos.json', (req, res) => {
+app.get('http://localhost:3000/data/productos.json', (req, res) => {
   fs.readFile(path.join(__dirname, 'data', 'productos.json'), 'utf8', (err, data) => {
     if (err) {
       res.status(500).send('Error al leer el archivo de productos');
