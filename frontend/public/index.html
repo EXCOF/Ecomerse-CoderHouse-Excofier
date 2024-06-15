@@ -10,6 +10,7 @@
   <link rel="icon" type="image/x-icon" href="images/icon.png">
 </head>
 <body>
+  <div id="App"></div>
   <header>
     <h1>ElJueguitos</h1>
     <img src="images/icon2.png" alt="Logotipo de GameHouse">
@@ -57,8 +58,8 @@
         <input type="text" id="dni" name="dni" required>
         <label for="telefono">Teléfono (10 - 14 dígitos numerales):</label>
         <input type="tel" id="telefono" name="telefono" required>
-        <button id="btnConfirmarCompra">Confirmar Compra</button>
-        <button id="btnCerrarCompra">Cerrar</button>
+        <button type="submit">Confirmar Compra</button>
+        <button id="btnCerrarCompra" type="button">Cerrar</button>
       </form>
     </div>
     <div id="modalMensaje" class="modalMensaje" style="display: none;">
@@ -107,6 +108,8 @@
       &copy; 2024 ElJueguitos | Diseñado por Excofier Santiago
     </div>
   </footer>
-  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="bundle.js"></script>
 </body>
 </html>

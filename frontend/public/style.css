@@ -60,6 +60,7 @@ h1, h3 {
   display: flex; /* Utiliza un contenedor flexible */
   flex-wrap: wrap; /* Permite que los elementos se envuelvan */
   justify-content: space-between; /* Distribuye el espacio uniformemente */
+  font-family: 'Cross Boxed', sans-serif;
 }
 
 /* Contenedor de cada producto */
@@ -168,6 +169,7 @@ h1, h3 {
   font-weight: bold; /* Texto en negrita */
   font-size: 1.1em; /* Tamaño de fuente */
   margin-top: 20px; /* Margen superior */
+  font-family: 'Cross Boxed', sans-serif;
 }
 
 /* Botones vaciar, comprar, continuar y cancelar compra */
@@ -182,6 +184,7 @@ h1, h3 {
   border-radius: 5px; /* Bordes redondeados */
   cursor: pointer; /* Cambia el cursor al pasar el ratón */
   margin-right: 10px; /* Margen derecho */
+  font-family: 'Cross Boxed', sans-serif;
 }
 
 /* Estilos para los botones de filtro */
@@ -193,6 +196,7 @@ h1, h3 {
   border-radius: 5px; /* Bordes redondeados */
   cursor: pointer; /* Cambia el cursor al pasar el ratón */
   margin: 5px; /* Margen alrededor */
+  font-family: 'Cross Boxed', sans-serif;
 }
 
 #filtros button:hover {

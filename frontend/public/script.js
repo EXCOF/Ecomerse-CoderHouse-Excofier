@@ -1,4 +1,3 @@
-
 // Inicializa la lista de productos y el carrito
 let productos = [];
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -150,17 +149,23 @@ function mostrarMensajeModal(mensaje) {
 }
 
 // Procesa la compra y valida los datos del formulario
-if (validarDatosCompra(nombre, numeroTarjeta, dni, telefono)) {
-  mostrarMensajeModal("¡Gracias por tu compra, " + nombre + "!");
-  document.getElementById("modalCompra").style.display = "none";
-  carrito = [];
-  guardarCarritoEnLocalStorage();
-  mostrarCarrito();
-  document.getElementById("modalCompra").style.display = "none";
-  // Restablecer el formulario después de una compra exitosa
-  document.getElementById("formularioCompra").reset();
-} else {
-  mostrarMensajeModal("Por favor, completa correctamente todos los campos del formulario.");
+function procesarCompra(event) {
+  event.preventDefault();
+  const nombre = document.getElementById("nombre").value;
+  const numeroTarjeta = document.getElementById("numeroTarjeta").value;
+  const dni = document.getElementById("dni").value;
+  const telefono = document.getElementById("telefono").value;
+
+  if (validarDatosCompra(nombre, numeroTarjeta, dni, telefono)) {
+    mostrarMensajeModal("¡Gracias por tu compra, " + nombre + "!");
+    document.getElementById("modalCompra").style.display = "none";
+    carrito = [];
+    guardarCarritoEnLocalStorage();
+    mostrarCarrito();
+    document.getElementById("modalCompra").style.display = "none";
+  } else {
+    mostrarMensajeModal("Por favor, completa correctamente todos los campos del formulario.");
+  }
 }
 
 // Busca productos según un término de búsqueda ingresado por el usuario
@@ -206,18 +211,11 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btnComprar").addEventListener("click", mostrarTotalEnModal);
   document.getElementById("formularioCompra").addEventListener("submit", procesarCompra);
   document.getElementById("buscador").addEventListener("input", buscarProducto);
+
   document.getElementById("filtroConsolas").addEventListener("click", () => filtrarPorCategoria("Consolas"));
   document.getElementById("filtroPC").addEventListener("click", () => filtrarPorCategoria("PC"));
   document.getElementById("filtroAccesorios").addEventListener("click", () => filtrarPorCategoria("Accesorios"));
   document.getElementById("filtroTodos").addEventListener("click", () => mostrarProductos());
 
   mostrarCarrito();
-
-  // Evento para cerrar el formulario de compra
-  document.getElementById("btnCerrarCompra").addEventListener("click", () => {
-  document.getElementById("modalCompra").style.display = "none";
-  // Restablecer el formulario después de cerrarlo
-  document.getElementById("formularioCompra").reset();
-   }); 
-
 });
