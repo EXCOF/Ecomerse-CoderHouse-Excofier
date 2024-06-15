@@ -256,6 +256,7 @@ h1, h3 {
   margin-bottom: 10px; /* Margen inferior */
   text-align: left; /* Texto alineado a la izquierda */
   font-family: 'Cross Boxed', sans-serif;
+  margin-top: 10px; /* Ajusta el valor según la cantidad de espacio que desees */
 }
 
 /* Campos del formulario */
@@ -308,15 +309,7 @@ h1, h3 {
 #formularioCompra input[type="tel"] {
   margin-bottom: 20px; /* Puedes ajustar este valor según sea necesario */
 }
-/* Efecto hover del botón de envío del formulario */
-#formularioCompra button:hover {
-  background-color: #3e8e41; /* Color de fondo más oscuro */
-}
 
-/* Efecto hover del botón de envío del formulario */
-#formularioCompra button:hover {
-  background-color: #3e8e41; /* Color de fondo más oscuro */
-}
 
 /* Estilos para el modal de mensaje */
 #modalMensaje {
