@@ -1,28 +1,22 @@
-// Cargar las variables de entorno
-require('dotenv').config();
-
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
 
 const app = express();
-const PORT = process.env.PORT
+const port = process.env.PORT || 3000;
 
-// Middleware para servir archivos estáticos desde la carpeta "public"
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Ruta para obtener los productos desde el archivo JSON
-app.get('http://localhost:3000/data/productos.json', (req, res) => {
-  fs.readFile(path.join(__dirname, 'data', 'productos.json'), 'utf8', (err, data) => {
-    if (err) {
-      res.status(500).send('Error al leer el archivo de productos');
-      return;
-    }
-    res.json(JSON.parse(data));
-  });
+// Ruta para servir el archivo productos.json
+app.get('/api/productos', (req, res) => {
+  res.sendFile(path.join(__dirname, 'data', 'productos.json'));
 });
 
-// Iniciar el servidor
-app.listen(PORT, () => {
-  console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
+// Ruta para servir los archivos estáticos del frontend
+app.use(express.static(path.join(__dirname, '../frontend/public')));
+
+// Ruta para servir la aplicación React en cualquier ruta que no sea /api/productos
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/public', 'index.html'));
+});
+
+app.listen(port, () => {
+  console.log(`Servidor backend escuchando en el puerto ${port}`);
 });

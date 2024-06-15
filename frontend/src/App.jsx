@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'; // Importa React y hooks de React
+
 const App = () => {
   const [productos, setProductos] = useState([]); // Estado para almacenar los productos
 
   // Efecto que se ejecuta al montar el componente
   useEffect(() => {
-    fetch('/data/productos.json') // Hace una petición a la API para obtener los productos
+    fetch('/api/productos') // Hace una petición a la API para obtener los productos
       .then(response => response.json()) // Convierte la respuesta a JSON
       .then(data => setProductos(data)) // Actualiza el estado con los datos obtenidos
       .catch(error => console.error('Error al cargar los productos:', error)); // Maneja errores
