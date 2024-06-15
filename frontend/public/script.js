@@ -162,7 +162,7 @@ function procesarCompra(event) {
     carrito = [];
     guardarCarritoEnLocalStorage();
     mostrarCarrito();
-    document.getElementById("modalCompra").style.display = "none";
+    document.getElementById("formularioCompra").reset();
   } else {
     mostrarMensajeModal("Por favor, completa correctamente todos los campos del formulario.");
   }
@@ -211,11 +211,16 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btnComprar").addEventListener("click", mostrarTotalEnModal);
   document.getElementById("formularioCompra").addEventListener("submit", procesarCompra);
   document.getElementById("buscador").addEventListener("input", buscarProducto);
-
   document.getElementById("filtroConsolas").addEventListener("click", () => filtrarPorCategoria("Consolas"));
   document.getElementById("filtroPC").addEventListener("click", () => filtrarPorCategoria("PC"));
   document.getElementById("filtroAccesorios").addEventListener("click", () => filtrarPorCategoria("Accesorios"));
   document.getElementById("filtroTodos").addEventListener("click", () => mostrarProductos());
 
   mostrarCarrito();
+
+  // Evento para cerrar el formulario de compra
+  document.getElementById("btnCerrarCompra").addEventListener("click", () => {
+    document.getElementById("modalCompra").style.display = "none";
+    document.getElementById("formularioCompra").reset();
+  }); 
 });

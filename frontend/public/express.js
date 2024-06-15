@@ -10,11 +10,11 @@ App.get('/api/productos', (req, res) => {
 });
 
 // Ruta para servir los archivos estáticos del frontend
-App.use(express.static(path.join(__dirname, '../frontend/public')));
+App.use(express.static(path.join(__dirname, '../public')));
 
 // Ruta para servir la aplicación React en cualquier ruta que no sea /api/productos
 App.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/public', 'index.html'));
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 App.listen(port, () => {

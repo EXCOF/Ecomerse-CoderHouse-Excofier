@@ -159,6 +159,10 @@ h1, h3 {
   cursor: pointer; /* Cambia el cursor al pasar el ratón */
 }
 
+#listaCarrito li button:hover {
+  background-color: #610000; /* Color de fondo rojo */
+}
+
 /* Efecto hover para el botón "Agregar al carrito" */
 #listaProductos li button:hover {
   background-color: #45a049; /* Color de fondo más oscuro */
@@ -185,6 +189,15 @@ h1, h3 {
   cursor: pointer; /* Cambia el cursor al pasar el ratón */
   margin-right: 10px; /* Margen derecho */
   font-family: 'Cross Boxed', sans-serif;
+}
+
+#btnVaciarCarrito:hover,
+#btnComprar:hover,
+#btnContinuarCompra:hover,
+#btnCancelarCompra:hover {
+  
+  background-color: #0056b3; /* Color de fondo azul */
+  
 }
 
 /* Estilos para los botones de filtro */
