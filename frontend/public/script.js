@@ -150,23 +150,17 @@ function mostrarMensajeModal(mensaje) {
 }
 
 // Procesa la compra y valida los datos del formulario
-function procesarCompra(event) {
-  event.preventDefault();
-  const nombre = document.getElementById("nombre").value;
-  const numeroTarjeta = document.getElementById("numeroTarjeta").value;
-  const dni = document.getElementById("dni").value;
-  const telefono = document.getElementById("telefono").value;
-
-  if (validarDatosCompra(nombre, numeroTarjeta, dni, telefono)) {
-    mostrarMensajeModal("¡Gracias por tu compra, " + nombre + "!");
-    document.getElementById("modalCompra").style.display = "none";
-    carrito = [];
-    guardarCarritoEnLocalStorage();
-    mostrarCarrito();
-    document.getElementById("modalCompra").style.display = "none";
-  } else {
-    mostrarMensajeModal("Por favor, completa correctamente todos los campos del formulario.");
-  }
+if (validarDatosCompra(nombre, numeroTarjeta, dni, telefono)) {
+  mostrarMensajeModal("¡Gracias por tu compra, " + nombre + "!");
+  document.getElementById("modalCompra").style.display = "none";
+  carrito = [];
+  guardarCarritoEnLocalStorage();
+  mostrarCarrito();
+  document.getElementById("modalCompra").style.display = "none";
+  // Restablecer el formulario después de una compra exitosa
+  document.getElementById("formularioCompra").reset();
+} else {
+  mostrarMensajeModal("Por favor, completa correctamente todos los campos del formulario.");
 }
 
 // Busca productos según un término de búsqueda ingresado por el usuario
@@ -218,4 +212,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("filtroTodos").addEventListener("click", () => mostrarProductos());
 
   mostrarCarrito();
+
+  // Evento para cerrar el formulario de compra
+  document.getElementById("btnCerrarCompra").addEventListener("click", () => {
+  document.getElementById("modalCompra").style.display = "none";
+  // Restablecer el formulario después de cerrarlo
+  document.getElementById("formularioCompra").reset();
+   }); 
+
 });
