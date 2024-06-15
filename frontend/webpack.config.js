@@ -7,7 +7,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx'], // Asegúrate de incluir .jsx en las extensiones
+    extensions: ['.js', '.jsx'],
     fallback: {
       "path": require.resolve("path-browserify"),
       "crypto": require.resolve("crypto-browserify"),
@@ -21,7 +21,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // Asegúrate de que Webpack maneje archivos .jsx
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -57,6 +57,9 @@ module.exports = {
     },
     compress: true,
     port: 8080,
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
   },
   mode: 'development'
 };
